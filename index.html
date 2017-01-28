@@ -20,10 +20,10 @@
 
 	</head>
 	<body>
-
+		<img src="" alt="">
 		<header class="compact">
 			<h2 class="tzine"><a href="">Home</a></h2>
-			<h1 class ="name"><a href="#" ><i>Indian Premier Legue<i></a></h1>
+			<h1 class ="name"><a href="" ><i>Indian Premier Legue<i></a></h1>
 		</header>
 
 		<div class = "container-fluid">
@@ -54,26 +54,27 @@
 								<div class = "col-lg-4">
 									<ul class="players-list">
 										<script id="players-template" type="x-handlebars-template">​
-
 											{{#each this}}
 												<li data-index="{{@index}}">
-													<a href="#" class="player-photo"><img src="{{player_img_url}}" height="130" alt="{{player_name}}"/></a>
-													<h2><a href="#"> {{player_name}} </a></h2>
-													<div class="dropdown">
-														<button align="center" class="dropbtn">Player Details</button>
-														<div class="dropdown-content">
+												<div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+													<div class="flipper">
+														<div class="front">
+														<a href="#" id="player-photo"><img src="{{player_img_url}}" height="130" alt="{{player_name}}"/></a>
+														</div>
+														<div class="back">
 															<ul class="player-description">
+																<li><span>Player Name:</span>{{player_name}}</li>
 																<li><span>Player Role: </span>{{player_role}}</li>
 																<li><span>Player Batting Style: </span>{{player_batting_style}} </li>
 																<li><span>Team Home Venue: </span>{{player_bowling_style}}</li>
 																<li><span>Player Bowling Style: </span>{{player_nationality}}</li>
 																<li><span>Player DOB: </span>{{player_dob}}</li>
 															</ul>
+														</div>
 													</div>
 												</div>
 											</li>
 										{{/each}}
-
 									</script>
 								</ul>
 							</div>

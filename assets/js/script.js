@@ -39,6 +39,7 @@ $(function () {
 	The render function will show the appropriate content of out page.
 	*/
 	$(window).on('hashchange', function(){
+		console.log(window.location.hash);
 		render(decodeURI(window.location.hash));
 	});
 
@@ -95,6 +96,7 @@ $(function () {
 		var list = $('.all-products .products-list');
 
 		var theTemplateScript = $("#products-template").html();
+
 		//Compile the template​
 		var theTemplate = Handlebars.compile (theTemplateScript);
 		list.append (theTemplate(data));
@@ -128,7 +130,7 @@ $(function () {
 
 		//Compile the template​
 		var theTemplate = Handlebars.compile (theTemplateScript);
-		//console.log(theTemplate(data));
+		console.log(theTemplate(data));
 
 		list.append (theTemplate(data));
 		 $(".all-products").remove();

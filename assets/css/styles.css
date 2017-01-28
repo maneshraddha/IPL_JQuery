@@ -5,7 +5,7 @@
 
 body{
 	font: normal 16px Arial, Helvetica, sans-serif;
-	background-image: url("../images/stadim2.jpeg");
+	background-image: url("../images/STADIUM.jpeg");
 	background-position: center center;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
@@ -26,7 +26,7 @@ header {
 	left:0;
 	right:0;
 
-	height: 40px;
+	height: 20px;
 	z-index: 100;
 
 	background-color: #660033;
@@ -55,7 +55,7 @@ header h2.tzine a{
 	font-size: 16px;
 	text-transform: uppercase;
 	display: inline-block;
-	padding: 15px 15px;
+	padding: 5px 15px;
 	border-radius: 5px;
 	background-color: #FF9900;
 }
@@ -307,7 +307,7 @@ header h2.tzine a{
 /* Product description */
 
 .players-list .player-description{
-	margin-top: 20px;
+	margin-top: 10px;
 
 	color: #000000;
 	font-size: 14px;
@@ -333,44 +333,17 @@ header h2.tzine a{
 	font-weight: bold;
 }
 
-/* Price and order button */
-
-.players-list button{
-	border-radius: 2px;
-	background-color:  #33001a;
-	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12);
-	border: 0;
-	color: #ffffff;
-	font-weight: bold;
-	font-size: 13px;
-	cursor: pointer;
-	/*padding-left: 10px;*/
-	/*padding-right: 10px;*/
-	width: 95px;
-	height: 32px;
-}
-
-.players-list .highlight{
-	position: absolute;
-	top:0;
-	left:0;
-	width:100%;
-	height:100%;
-	background-color: rgba(0,0,0,0.1);
-	opacity: 0;
-	transition: 0.4s;
-}
-
-.players-list > li:hover .highlight{
-	opacity: 1;
+#player-photo{
+	height: 400px;
+	width: 400px;
 }
 
 /* Making the list responsive */
 
 @media (max-width: 800px){
 
-	.players-list .player-photo{
-		width: 225px;
+	.players-list {
+		width: 335px;
 	}
 
 	.players-list .player-description{
@@ -378,34 +351,46 @@ header h2.tzine a{
 	}
 }
 
+* entire container, keeps perspective */
+.flip-container {
+	perspective: 1000px;
+}
+	/* flip the pane when hovered */
+	.flip-container:hover .flipper, .flip-container.hover .flipper {
+		transform: rotateY(180deg);
+	}
 
-.dropdown {
-    position: relative;
-    display: inline-block;
+.flip-container, .front, .back {
+	width: 200px;
+	height: 250px;
 }
 
-.dropdown-content {
-    display: none;
-    position: absolute;
-    right: 0;
-    background-color: #f9f9f9;
-    min-width: 190px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-		z-index :	999;
-		font:normal 12px sans-serif;
+/* flip speed goes here */
+.flipper {
+	transition: 0.6s;
+	transform-style: preserve-3d;
 
-		background-color:#ffffff;
-		border:2px solid #33001a;
-		border-radius: 5px;
-		box-shadow: 2px 5px 2px rgba(0, 0, 0, 0.08);
-		margin: 0 12px 14px 0;
-		padding: 20px;
+	position: relative;
 }
-/*.dropdown-content a:hover {background-color: #f1f1f1}*/
+/* hide back of pane during swap */
+.front, .back {
+	backface-visibility: hidden;
 
-.dropdown:hover .dropdown-content {
-    display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
 
+/* front pane, placed above back */
+.front {
+	z-index: 2;
+	/* for firefox 31 */
+	transform: rotateY(0deg);
+}
+
+/* back, initially hidden pane */
+.back {
+	transform: rotateY(180deg);
 }
 
 /*---------------------------
